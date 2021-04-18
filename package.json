@@ -6,6 +6,8 @@
   "scripts": {
     "build": "cd client && npm run build",
     "start": "node server.js",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client",
     "dev": "nodemon server.js"
   },
   "author": "",
