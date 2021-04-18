@@ -43,10 +43,14 @@ app.get("/get/:summoner", async (req,res) => {
 
 app.get("/games/:summonner", async (req, res) => {
     const {summoner} = req.params
-    const summ = (await api.Summoner.getByName(summoner, Constants.Regions.EU_WEST)).response
-    const id = summ.accountId
-    const resp = (await api.Match.list(id, Constants.Regions.EU_WEST)).response
-    res.send(resp)
+    try{
+        const summ = (await api.Summoner.getByName(summoner, Constants.Regions.EU_WEST)).response
+        const id = summ.accountId
+        const resp = (await api.Match.list(id, Constants.Regions.EU_WEST)).response
+        res.send(resp)
+    }catch{
+        res.send([])
+    }
 })
 app.use(express.static(path.join(__dirname, "client", 'build')));
 
