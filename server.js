@@ -48,6 +48,10 @@ app.get("/games/:summonner", async (req, res) => {
     const resp = (await api.Match.list(id, Constants.Regions.EU_WEST)).response
     res.send(resp)
 })
-app.use(express.static(path.join(__dirname, 'client/build')));
-app.listen(port,()=>console.log('Escuchando en el puerto: '+port))
+app.use(express.static(path.join(__dirname, "client", 'build')));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, "client",'build', 'index.html'));
+});
+app.listen(port,()=>console.log('Escuchando en el puerto: '+port, path.join(__dirname, 'client/build')))
 

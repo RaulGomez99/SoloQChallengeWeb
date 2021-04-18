@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react"
 import './App.css';
-import SumonnerItem from '../src/Components/SummonerItem/summoneritem.component'
 import { Table, Avatar } from 'antd';
 import 'antd/dist/antd.css';
 import { CheckCircleTwoTone , CloseCircleTwoTone, QuestionCircleOutlined} from '@ant-design/icons';
@@ -92,7 +91,7 @@ const App = () => {
     async function loadSummoners(){
       let allSumms = []
       for (let i = 0; i < summonersNames.length; i++) {
-        const summ =  await fetch(`http://localhost:3000/get/${summonersNames[i]}`).then(res => res.json())
+        const summ =  await fetch(`/get/${summonersNames[i]}`).then(res => res.json())
         allSumms.push(summ)
       }
       allSumms = allSumms.sort(ordenacion)
