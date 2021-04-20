@@ -3,7 +3,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const { LolApi, Constants } = require('twisted');
 const path = require('path');
-const api = new LolApi({key:"RGAPI-30d78e72-9ed8-48f9-a53e-0f07479f76ed"})
+const api = new LolApi({key:"RGAPI-9d34f4ca-f569-461a-95d5-302dd5284637"})
 const cors = require('cors');
 app.use(cors())
 
